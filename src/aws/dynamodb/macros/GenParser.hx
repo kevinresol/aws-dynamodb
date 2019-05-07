@@ -68,7 +68,9 @@ class GenParser {
 					var value = value.M[$v{f.name}];
 					${f.expr};
 				},
+				#if haxe4
 				quotes: null,
+				#end
 			});
 		}
 		

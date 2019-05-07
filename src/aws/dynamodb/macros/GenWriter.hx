@@ -68,7 +68,9 @@ class GenWriter {
 					var value = value.$name;
 					${f.expr};
 				},
+				#if haxe4
 				quotes: null,
+				#end
 			});
 		}
 		
