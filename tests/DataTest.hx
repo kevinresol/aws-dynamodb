@@ -28,7 +28,7 @@ class DataTest {
 		asserts.assert(compare({SS: ['s1', 's2']}, Data.serialize(['s1', 's2'])));
 		asserts.assert(compare({NS: ['1', '2']}, Data.serialize([1, 2])));
 		asserts.assert(compare({NS: ['1.1', '2.2']}, Data.serialize([1.1, 2.2])));
-		asserts.assert(compare({BS: ['MTIz', 'NDU2']}, Data.serialize(['123', '456'].map(Bytes.ofString))));
+		asserts.assert(compare({BS: ['MTIz', 'NDU2']}, Data.serialize(['123', '456'].map(function(v) return Bytes.ofString(v)))));
 		
 		asserts.assert(compare({M: {a: {N: '1'}, b: {N: '2'}}}, Data.serialize(['a' => 1, 'b' => 2])));
 		asserts.assert(compare({M: {a: {N: '1'}, b: {N: '2'}}}, Data.serialize(({a:1, b:2}:DynamicAccess<Int>))));
@@ -56,7 +56,7 @@ class DataTest {
 		asserts.assert(compare(['s1', 's2'], Data.deserialize(({SS: ['s1', 's2']}:Array<String>))));
 		asserts.assert(compare([1, 2], Data.deserialize(({NS: ['1', '2']}:Array<Int>))));
 		asserts.assert(compare([1.1, 2.2], Data.deserialize(({NS: ['1.1', '2.2']}:Array<Float>))));
-		asserts.assert(compare(['123', '456'].map(Bytes.ofString), Data.deserialize(({BS: ['MTIz', 'NDU2']}:Array<Bytes>))));
+		asserts.assert(compare(['123', '456'].map(function(v) return Bytes.ofString(v)), Data.deserialize(({BS: ['MTIz', 'NDU2']}:Array<Bytes>))));
 		
 		asserts.assert(compare(['a' => 1, 'b' => 2], Data.deserialize(({M: {a: {N: '1'}, b: {N: '2'}}}:Map<String, Int>))));
 		asserts.assert(compare({a: 1, b: 2}, Data.deserialize(({M: {a: {N: '1'}, b: {N: '2'}}}:DynamicAccess<Int>))));
