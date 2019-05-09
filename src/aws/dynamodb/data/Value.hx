@@ -3,12 +3,12 @@ package aws.dynamodb.data;
 import haxe.DynamicAccess;
 
 // generic representation
-typedef Representation = {
+typedef Value = {
 	?B:String,
 	?BOOL:Bool,
 	?BS:Array<String>,
-	?L:Array<Representation>,
-	?M:DynamicAccess<Representation>,
+	?L:Array<Value>,
+	?M:DynamicAccess<Value>,
 	?N:String,
 	?NS:Array<String>,
 	?NULL:Bool,

@@ -11,7 +11,7 @@ using tink.MacroApi;
 
 class GenParser {
 	public static function wrap(placeholder:Expr, ct:ComplexType):Function {
-		return placeholder.func(['value'.toArg(macro:aws.dynamodb.data.Representation)]);
+		return placeholder.func(['value'.toArg(macro:aws.dynamodb.data.Value)]);
 	}
 	
 	public static function nullable(e:Expr):Expr {

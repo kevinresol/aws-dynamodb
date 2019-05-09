@@ -112,7 +112,7 @@ class GenWriter {
 								}]).at()}
 							}
 						}
-					}:aws.dynamodb.data.Representation)
+					}:aws.dynamodb.data.Value)
 				}
 			});
 		}
